@@ -1,86 +1,59 @@
 ---
 title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+description: 'Your documentation description'
 ---
 
-## Setup your development
+## Inspeqai Python SDK
+Get started by simple example for evaluation of metrics.
 
-Learn how to update your docs locally and and deploy them to the public.
+### Installation
 
-### Edit and preview
+To install inspeqai python sdk, you can follow these steps:
 
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
-  </Accordion>
-</AccordionGroup>
+```bash
+pip install inspeqai
+```
+Get latest version from <a href="https://pypi.org/project/inspeqai/" target="_blank"> Here</a>
 
-### Deploy your changes
 
-<AccordionGroup>
+### Get API keys
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+Get your API keys from <a href="https://app.inspeq.ai/" target="_blank">Here</a>
 
-</AccordionGroup>
+### Usage 
+Create a file where you could use the functions provided by inspeq python sdk.
+```python main.py
+from inspeq.client import Evaluator
 
-## Update your docs
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+API_KEY="Your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
-<CardGroup>
 
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
-</Card>
+input_data = {
+            "llm_input_context": "Seattle is known for its wet climate due to its location in the Pacific Northwest region of the United States. From 1981 to 2010, the average annual precipitation measured at Seattle-Tacoma International Airport was 37.49 inches (952 mm). This significant amount of rainfall contributes to lush vegetation and a generally green landscape throughout the year. The city's proximity to the Pacific Ocean also influences its weather patterns, with maritime air masses bringing moisture-laden air inland. However, despite the overall wetness of the climate, there is a great variance in local climates within the Seattle area.",
+            "llm_input_query": "What factors contribute to the variance in local climates in the Seattle area?",
+            "llm_output": "Several factors contribute to the variance in local climates in the Seattle area. One significant factor is the presence of the Olympic Mountains to the west of the city. These mountains act as a barrier, causing the 'rain shadow effect' where the western slopes receive abundant rainfall while the eastern slopes experience much drier conditions. Additionally, Seattle's proximity to Puget Sound and other bodies of water can create microclimates, with areas closer to the water experiencing milder temperatures due to the moderating influence of the water. Furthermore, elevation plays a role, with higher elevations generally being cooler and receiving more precipitation compared to lower-lying areas. Urban heat island effects can also impact local climates, with downtown areas typically being warmer than surrounding suburbs and rural areas.",
+        }
 
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
 
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
+inspeq_instance.get_all_metrices(input_data)
+```
 
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
-</Card>
+Result will display in your terminal once you run your main.py file.
 
-</CardGroup>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,98 +1,219 @@
 ---
-title: 'Development'
-description: 'Learn how to preview changes locally'
+title: "Metrics"
+description: "Detailed view of metrics"
 ---
 
-<Info>
-  **Prerequisite** You should have installed Node.js (version 18.10.0 or
-  higher).
-</Info>
+## Metrics
 
-Step 1. Install Mintlify on your OS:
+### Factual Consistency:
 
-<CodeGroup>
+Check if the generated text is consistent with known facts.
 
-```bash npm
-npm i -g mintlify
+### Usage
+
+Create a file where you could use the functions provided by inspeq python sdk.
+
+```python main.py
+from inspeq.client import Evaluator
+
+
+API_KEY="Your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+
+
+input_data = {
+            "llm_input_context": "Seattle is known for its wet climate due to its location in the Pacific Northwest region of the United States. From 1981 to 2010, the average annual precipitation measured at Seattle-Tacoma International Airport was 37.49 inches (952 mm). This significant amount of rainfall contributes to lush vegetation and a generally green landscape throughout the year. The city's proximity to the Pacific Ocean also influences its weather patterns, with maritime air masses bringing moisture-laden air inland. However, despite the overall wetness of the climate, there is a great variance in local climates within the Seattle area.",
+            "llm_input_query": "What factors contribute to the variance in local climates in the Seattle area?",
+            "llm_output": "Several factors contribute to the variance in local climates in the Seattle area. One significant factor is the presence of the Olympic Mountains to the west of the city. These mountains act as a barrier, causing the 'rain shadow effect' where the western slopes receive abundant rainfall while the eastern slopes experience much drier conditions. Additionally, Seattle's proximity to Puget Sound and other bodies of water can create microclimates, with areas closer to the water experiencing milder temperatures due to the moderating influence of the water. Furthermore, elevation plays a role, with higher elevations generally being cooler and receiving more precipitation compared to lower-lying areas. Urban heat island effects can also impact local climates, with downtown areas typically being warmer than surrounding suburbs and rural areas.",
+        }
+
+
+print("\n  Factual Consistency   is:")
+print(inspeq_instance.factual_consistency(input_data))
 ```
 
-```bash yarn
-yarn global add mintlify
+### Grammatical Correctness:
+
+Assess the grammatical accuracy of the generated text.
+
+### Usage
+
+Create a file where you could use the functions provided by inspeq python sdk.
+
+```python main.py
+from inspeq.client import Evaluator
+
+
+API_KEY="Your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+
+
+input_data = {
+            "llm_input_context": "Seattle is known for its wet climate due to its location in the Pacific Northwest region of the United States. From 1981 to 2010, the average annual precipitation measured at Seattle-Tacoma International Airport was 37.49 inches (952 mm). This significant amount of rainfall contributes to lush vegetation and a generally green landscape throughout the year. The city's proximity to the Pacific Ocean also influences its weather patterns, with maritime air masses bringing moisture-laden air inland. However, despite the overall wetness of the climate, there is a great variance in local climates within the Seattle area.",
+            "llm_input_query": "What factors contribute to the variance in local climates in the Seattle area?",
+            "llm_output": "Several factors contribute to the variance in local climates in the Seattle area. One significant factor is the presence of the Olympic Mountains to the west of the city. These mountains act as a barrier, causing the 'rain shadow effect' where the western slopes receive abundant rainfall while the eastern slopes experience much drier conditions. Additionally, Seattle's proximity to Puget Sound and other bodies of water can create microclimates, with areas closer to the water experiencing milder temperatures due to the moderating influence of the water. Furthermore, elevation plays a role, with higher elevations generally being cooler and receiving more precipitation compared to lower-lying areas. Urban heat island effects can also impact local climates, with downtown areas typically being warmer than surrounding suburbs and rural areas.",
+        }
+
+
+print("\n  Grammatical correctness response  is:")
+print(inspeq_instance.grammatical_correctness(input_data))
 ```
 
-</CodeGroup>
+### Do Not Use Keywords:
 
-Step 2. Go to the docs are located (where you can find `mint.json`) and run the following command:
+Identify and evaluate the use of specific keywords or phrases.
 
-```bash
-mintlify dev
+### Usage
+
+Create a file where you could use the functions provided by inspeq python sdk.
+
+```python main.py
+from inspeq.client import Evaluator
+
+
+API_KEY="Your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+
+
+input_data = {
+            "llm_input_context": "Seattle is known for its wet climate due to its location in the Pacific Northwest region of the United States. From 1981 to 2010, the average annual precipitation measured at Seattle-Tacoma International Airport was 37.49 inches (952 mm). This significant amount of rainfall contributes to lush vegetation and a generally green landscape throughout the year. The city's proximity to the Pacific Ocean also influences its weather patterns, with maritime air masses bringing moisture-laden air inland. However, despite the overall wetness of the climate, there is a great variance in local climates within the Seattle area.",
+            "llm_input_query": "What factors contribute to the variance in local climates in the Seattle area?",
+            "llm_output": "Several factors contribute to the variance in local climates in the Seattle area. One significant factor is the presence of the Olympic Mountains to the west of the city. These mountains act as a barrier, causing the 'rain shadow effect' where the western slopes receive abundant rainfall while the eastern slopes experience much drier conditions. Additionally, Seattle's proximity to Puget Sound and other bodies of water can create microclimates, with areas closer to the water experiencing milder temperatures due to the moderating influence of the water. Furthermore, elevation plays a role, with higher elevations generally being cooler and receiving more precipitation compared to lower-lying areas. Urban heat island effects can also impact local climates, with downtown areas typically being warmer than surrounding suburbs and rural areas.",
+        }
+
+
+print("\n  Do not use keywords response  is:")
+print(inspeq_instance.do_not_use_keywords(input_data))
 ```
 
-The documentation website is now available at `http://localhost:3000`.
+### Fluency:
 
-### Custom Ports
+Assess the overall smoothness and fluency of the generated text
 
-Mintlify uses port 3000 by default. You can use the `--port` flag to customize the port Mintlify runs on. For example, use this command to run in port 3333:
+### Usage
 
-```bash
-mintlify dev --port 3333
+Create a file where you could use the functions provided by inspeq python sdk.
+
+```python main.py
+from inspeq.client import Evaluator
+
+
+API_KEY="Your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+
+
+input_data = {
+            "llm_input_context": "Seattle is known for its wet climate due to its location in the Pacific Northwest region of the United States. From 1981 to 2010, the average annual precipitation measured at Seattle-Tacoma International Airport was 37.49 inches (952 mm). This significant amount of rainfall contributes to lush vegetation and a generally green landscape throughout the year. The city's proximity to the Pacific Ocean also influences its weather patterns, with maritime air masses bringing moisture-laden air inland. However, despite the overall wetness of the climate, there is a great variance in local climates within the Seattle area.",
+            "llm_input_query": "What factors contribute to the variance in local climates in the Seattle area?",
+            "llm_output": "Several factors contribute to the variance in local climates in the Seattle area. One significant factor is the presence of the Olympic Mountains to the west of the city. These mountains act as a barrier, causing the 'rain shadow effect' where the western slopes receive abundant rainfall while the eastern slopes experience much drier conditions. Additionally, Seattle's proximity to Puget Sound and other bodies of water can create microclimates, with areas closer to the water experiencing milder temperatures due to the moderating influence of the water. Furthermore, elevation plays a role, with higher elevations generally being cooler and receiving more precipitation compared to lower-lying areas. Urban heat island effects can also impact local climates, with downtown areas typically being warmer than surrounding suburbs and rural areas.",
+        }
+
+
+print("\n  Fluency is:")
+print(inspeq_instance.fluency(input_data))
 ```
 
-You will see an error like this if you try to run Mintlify in a port that's already taken:
+### Answer Relevance:
 
-```md
-Error: listen EADDRINUSE: address already in use :::3000
+Determine the relevance of the generated text in the context of a given query or
+
+### Usage
+
+Create a file where you could use the functions provided by inspeq python sdk.
+
+```python main.py
+from inspeq.client import Evaluator
+
+
+API_KEY="Your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+
+
+input_data = {
+            "llm_input_context": "Seattle is known for its wet climate due to its location in the Pacific Northwest region of the United States. From 1981 to 2010, the average annual precipitation measured at Seattle-Tacoma International Airport was 37.49 inches (952 mm). This significant amount of rainfall contributes to lush vegetation and a generally green landscape throughout the year. The city's proximity to the Pacific Ocean also influences its weather patterns, with maritime air masses bringing moisture-laden air inland. However, despite the overall wetness of the climate, there is a great variance in local climates within the Seattle area.",
+            "llm_input_query": "What factors contribute to the variance in local climates in the Seattle area?",
+            "llm_output": "Several factors contribute to the variance in local climates in the Seattle area. One significant factor is the presence of the Olympic Mountains to the west of the city. These mountains act as a barrier, causing the 'rain shadow effect' where the western slopes receive abundant rainfall while the eastern slopes experience much drier conditions. Additionally, Seattle's proximity to Puget Sound and other bodies of water can create microclimates, with areas closer to the water experiencing milder temperatures due to the moderating influence of the water. Furthermore, elevation plays a role, with higher elevations generally being cooler and receiving more precipitation compared to lower-lying areas. Urban heat island effects can also impact local climates, with downtown areas typically being warmer than surrounding suburbs and rural areas.",
+        }
+print("\n  Answer relevance is:")
+print(inspeq_instance.answer_relevance(input_data))
 ```
 
-## Mintlify Versions
+### Word Limit Test:
 
-Each CLI is linked to a specific version of Mintlify. Please update the CLI if your local website looks different than production.
+Check if the generated text adheres to specified word limits.
 
-<CodeGroup>
+### Usage
 
-```bash npm
-npm i -g mintlify@latest
+Create a file where you could use the functions provided by inspeq python sdk.
+
+```python main.py
+from inspeq.client import Evaluator
+
+
+API_KEY="Your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+
+
+input_data = {
+            "llm_input_context": "Seattle is known for its wet climate due to its location in the Pacific Northwest region of the United States. From 1981 to 2010, the average annual precipitation measured at Seattle-Tacoma International Airport was 37.49 inches (952 mm). This significant amount of rainfall contributes to lush vegetation and a generally green landscape throughout the year. The city's proximity to the Pacific Ocean also influences its weather patterns, with maritime air masses bringing moisture-laden air inland. However, despite the overall wetness of the climate, there is a great variance in local climates within the Seattle area.",
+            "llm_input_query": "What factors contribute to the variance in local climates in the Seattle area?",
+            "llm_output": "Several factors contribute to the variance in local climates in the Seattle area. One significant factor is the presence of the Olympic Mountains to the west of the city. These mountains act as a barrier, causing the 'rain shadow effect' where the western slopes receive abundant rainfall while the eastern slopes experience much drier conditions. Additionally, Seattle's proximity to Puget Sound and other bodies of water can create microclimates, with areas closer to the water experiencing milder temperatures due to the moderating influence of the water. Furthermore, elevation plays a role, with higher elevations generally being cooler and receiving more precipitation compared to lower-lying areas. Urban heat island effects can also impact local climates, with downtown areas typically being warmer than surrounding suburbs and rural areas.",
+        }
+
+
+print("\n  word_limit_test is:")
+print(inspeq_instance.word_limit_test(input_data))
 ```
 
-```bash yarn
-yarn global upgrade mintlify
+### Response Tone:
+
+Assess the tone and style of the generated response.
+
+### Usage
+
+Create a file where you could use the functions provided by inspeq python sdk.
+
+```python main.py
+from inspeq.client import Evaluator
+
+
+API_KEY="Your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
+
+
+input_data = {
+            "llm_input_context": "Seattle is known for its wet climate due to its location in the Pacific Northwest region of the United States. From 1981 to 2010, the average annual precipitation measured at Seattle-Tacoma International Airport was 37.49 inches (952 mm). This significant amount of rainfall contributes to lush vegetation and a generally green landscape throughout the year. The city's proximity to the Pacific Ocean also influences its weather patterns, with maritime air masses bringing moisture-laden air inland. However, despite the overall wetness of the climate, there is a great variance in local climates within the Seattle area.",
+            "llm_input_query": "What factors contribute to the variance in local climates in the Seattle area?",
+            "llm_output": "Several factors contribute to the variance in local climates in the Seattle area. One significant factor is the presence of the Olympic Mountains to the west of the city. These mountains act as a barrier, causing the 'rain shadow effect' where the western slopes receive abundant rainfall while the eastern slopes experience much drier conditions. Additionally, Seattle's proximity to Puget Sound and other bodies of water can create microclimates, with areas closer to the water experiencing milder temperatures due to the moderating influence of the water. Furthermore, elevation plays a role, with higher elevations generally being cooler and receiving more precipitation compared to lower-lying areas. Urban heat island effects can also impact local climates, with downtown areas typically being warmer than surrounding suburbs and rural areas.",
+        }
+
+
+print("\n  response_tone is:")
+print(inspeq_instance.response_tone(input_data))
 ```
 
-</CodeGroup>
+### Conceptual Similarity:
 
-## Deployment
+Measure how closely the generated text aligns with the intended conceptual content.
 
-<Tip>
-  Unlimited editors available under the [Startup
-  Plan](https://mintlify.com/pricing)
-</Tip>
+### Usage
 
-You should see the following if the deploy successfully went through:
+Create a file where you could use the functions provided by inspeq python sdk.
 
-<Frame>
-  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
-</Frame>
+```python main.py
+from inspeq.client import Evaluator
 
-## Troubleshooting
 
-Here's how to solve some common problems when working with the CLI.
+API_KEY="Your_api_key"
+inspeq_instance = Evaluator(sdk_api_key=API_KEY)
 
-<AccordionGroup>
-  <Accordion title="Mintlify is not loading">
-    Update to Node v18. Run `mintlify install` and try again.
-  </Accordion>
-  <Accordion title="No such file or directory on Windows">
-Go to the `C:/Users/Username/.mintlify/` directory and remove the `mint`
-folder. Then Open the Git Bash in this location and run `git clone
-https://github.com/mintlify/mint.git`.
 
-Repeat step 3.
+input_data = {
+            "llm_input_context": "Seattle is known for its wet climate due to its location in the Pacific Northwest region of the United States. From 1981 to 2010, the average annual precipitation measured at Seattle-Tacoma International Airport was 37.49 inches (952 mm). This significant amount of rainfall contributes to lush vegetation and a generally green landscape throughout the year. The city's proximity to the Pacific Ocean also influences its weather patterns, with maritime air masses bringing moisture-laden air inland. However, despite the overall wetness of the climate, there is a great variance in local climates within the Seattle area.",
+            "llm_input_query": "What factors contribute to the variance in local climates in the Seattle area?",
+            "llm_output": "Several factors contribute to the variance in local climates in the Seattle area. One significant factor is the presence of the Olympic Mountains to the west of the city. These mountains act as a barrier, causing the 'rain shadow effect' where the western slopes receive abundant rainfall while the eastern slopes experience much drier conditions. Additionally, Seattle's proximity to Puget Sound and other bodies of water can create microclimates, with areas closer to the water experiencing milder temperatures due to the moderating influence of the water. Furthermore, elevation plays a role, with higher elevations generally being cooler and receiving more precipitation compared to lower-lying areas. Urban heat island effects can also impact local climates, with downtown areas typically being warmer than surrounding suburbs and rural areas.",
+        }
 
-  </Accordion>
-  <Accordion title="Getting an unknown error">
-    Try navigating to the root of your device and delete the ~/.mintlify folder.
-    Then run `mintlify dev` again.
-  </Accordion>
-</AccordionGroup>
-
-Curious about what changed in a CLI version? [Check out the CLI changelog.](/changelog/command-line)
+print("\n  conceptual_similarity is:")
+print(inspeq_instance.conceptual_similarity(input_data))
+```

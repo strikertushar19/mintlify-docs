@@ -5,6 +5,11 @@
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
+  "topAnchor": {
+    "name": "Home",
+    "icon": "building"
+},
+
   "favicon": "/favicon.svg",
   "colors": {
     "primary": "#0D9373",
